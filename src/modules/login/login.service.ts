@@ -35,6 +35,7 @@ export class LoginService {
       throw new BadRequestException('Invalid credentials');
     }
 
-    return await this.jwtService.generate(existingUser.id);
+    const token = await this.jwtService.generate(existingUser.id);
+    return { token };
   }
 }

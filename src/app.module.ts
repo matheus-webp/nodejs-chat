@@ -10,7 +10,7 @@ import { AuthenticationMiddleware } from 'src/middleware/authentication';
 import { JWTService } from 'src/auth/jwt.service';
 import { EmailService } from 'src/mail/mail.service';
 import { ChangePasswordModule } from './modules/change-password/change-password.module';
-import { ChatModule } from './websocket/chat.module';
+import { ChatModule } from './chat/chat.module';
 
 @Module({
   imports: [UserModule, LoginModule, ChangePasswordModule, ChatModule],

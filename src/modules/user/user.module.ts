@@ -8,5 +8,6 @@ import { JWTService } from 'src/auth/jwt.service';
 @Module({
   controllers: [UserController],
   providers: [UserService, PrismaService, EncryptionService, JWTService],
+  exports: [EncryptionService, PrismaService],
 })
 export class UserModule {}

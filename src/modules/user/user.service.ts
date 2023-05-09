@@ -8,6 +8,7 @@ import {
 import { UserDTO } from './user.dto';
 import { PrismaService } from 'src/database/prisma.service';
 import { EncryptionService } from 'src/encryption/encryption.service';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
 export class UserService {
@@ -15,6 +16,10 @@ export class UserService {
     private prisma: PrismaService,
     private encryptionService: EncryptionService,
   ) {}
+
+  async findOne(where: Prisma.UserWhereUniqueInput) {
+    return await this.prisma.user.findUnique({ where });
+  }
 
   async create(data: UserDTO) {
     const { password, passwordConfirmation, ...userData } = data;
